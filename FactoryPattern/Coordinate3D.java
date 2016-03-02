@@ -1,104 +1,60 @@
-import java.util.Random;
+/**
+ * Coordinate3D <implements Coordinate>: 3 dimentional coordinate
+ * +toString()
+ * +distance()
+ * +label()
+ * +getLabel()
+ */
 
-public class Coordinate3D implements Coordinate{
+import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
-	private int x; //this is the x coordinate of the 3D point
-	private int y; //this is the y coordinate of the 3D point
-	private int z; //this is the y coordinate of the 3D point
+public class Coordinate3D extends CoordinateNdimensional {
 
-	private String label; //label of 1D point
-	
+	private double x;
+
+	private double y;
+
+	private double z;
+
 	/**
-	 * This is the default constructor. It will randomly select a value
-	 * for x
+	 * Overload the constructor for specifying the coordinate location
+	 * @param x is the x coordinate
+	 * @param y is the y coordinate
+	 * @param z is the z coordinate
 	 */
-	public Coordinate3D(){
-		this.x = randomCoordinate();
-		this.y = randomCoordinate();
-		this.z = randomCoordinate();
-		this.label = "";
-
-	}
-	
-	/**
-	 * This constructor will set x, y, and z to the passed in values
-	 * @param x - this is the value the coordinate's x will be set to
-	 * @param y - this is the value the coordinate's y will be set to
-	 * @param z - this is the value the coordinate's z will be set to
-	 */
-	public Coordinate3D(int x, int y, int z){
+	public Coordinate3D(double x, double y, double z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-		this.label = "";
-	}
-	
-	@Override
-	public String toString(){
-		
-		String retString = label + ": (" + getX() + ", " + getY() + ", ";
-		retString = retString + getZ() + ")";
-		return retString;		
-	}
-	
-	@Override
-	public double distance(Coordinate coor) {
-		
-		int newX = this.x - ((Coordinate3D)coor).getX();
-		int newY = this.y - ((Coordinate3D)coor).getY();
-		int newZ = this.z - ((Coordinate3D)coor).getZ();
-		double bothX = (double)newX * (double)newX;
-		double bothY = (double)newY * (double)newY;
-	    double bothZ = (double)newZ * (double)newZ;
-	    double distance = Math.sqrt(bothX + bothY + bothZ);
-		return distance;
 	}
 
-	@Override
-	public void label(String label) {
-		this.label = label;
+
+	/**
+	 * Overload constructor that specifies a random value,
+	 * range is between -100.0 to 100.0
+	 */
+	public Coordinate3D() {
+		double min = -100.0;
+		double max = 100.0;
+		x = getRandom(min, max);
+		y = getRandom(min, max);
+		z = getRandom(min, max);
 	}
 
-	@Override
-	public String getLabel() {
-		return label;
+	public String toString() { return ("(" + x + ", " + y + ", " + z + ")"); }
+
+	public double distance(Coordinate c) {
+		return Math.sqrt(Math.pow(this.x - ((Coordinate3D)c).getX(), 2) + Math.pow(this.y - ((Coordinate3D)c).getY(), 2) + Math.pow(this.z - ((Coordinate3D)c).getZ(), 2));
 	}
 
-	public int randomCoordinate(){
-		Random random1 = new Random();
-		int sign1 = random1.nextInt(2); //returns either 0 or 1
-		if(sign1 == 0){ //positive case for x
-			Random random2 = new Random();
-			int newCoor = random2.nextInt();
-			return newCoor;
-		} else{ //negative case for x
-			Random random2 = new Random();
-			int newCoor = random2.nextInt();
-			return newCoor * -1;
-		}
-	}
-	
-	public void setX(int x) {
-		this.x = x;
-	}
-	
-	public int getX() {
-		return this.x;
-	}
-
-	public void setY(int y) {
-		this.y = y;
-	}
-	
-	public int getY() {
-		return this.y;
-	}
-	
-	public void setZ(int z) {
-		this.z = z;
-	}
-	
-	public int getZ() {
-		return this.z;
-	}
+	/**
+	 * Getter for x, y
+	 */
+	public void setX(double x) { this.x = x; }
+	public double getX() { return this.x; }
+	public void setY(double y) { this.y = y; }
+	public double getY() { return this.y; }
+	public void setZ(double z) { this.z = z; }
+	public double getZ() { return this.z; }
 }

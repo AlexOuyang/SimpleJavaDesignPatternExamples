@@ -1,6 +1,10 @@
 This is homework 2 question 1:
 to compile:  javac *.java
-to run:      java CoordinateTester
+to run:      java TesterCoordinate
+
+
+Referece Articles:  
+http://www.tutorialspoint.com/design_pattern/factory_pattern.htm
 
 
 

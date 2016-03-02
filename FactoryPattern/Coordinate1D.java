@@ -6,50 +6,37 @@
  * +getLabel()
  */
 
-import java.util.*;
-
 public class Coordinate1D extends CoordinateNdimensional {
 
 	private double x;
 
-	/**
-	 * Overload constructor that specifies a random value
-	 * @param min range
-	 * @param max range
-	 */
-	public Coordinate1D(double min, double max) { x = getRandom(min, max); }
 
 	/**
 	 * Overload the constructor for specifying the coordinate location
 	 * @param x is the x coordinate
 	 */
-	public Coordinate1D(int x) { this.x = x; }
+	public Coordinate1D(double x) { this.x = x; }
 
-	@Override
-	public String toString() { return ("(" + getX() + ")"); }
 
-	@Override
-	public double distance(Coordinate1D c) {
-		double distance = (double)this.x - (double)((Coordinate1D)coor).getX();
-		distance = Math.abs(this.x - coor);
-		return distance;
+	/**
+	 * Overload constructor that specifies a random value,
+	 * range is between -100.0 to 100.0
+	 */
+	public Coordinate1D() {
+		double min = -100.0;
+		double max = 100.0;
+		x = getRandom(min, max);
 	}
 
-	@Override
-	public void label(String label) {
-		this.label = label;
+	public String toString() { return ("(" + x + ")"); }
+
+	public double distance(Coordinate c) {
+		return Math.abs(this.x - ((Coordinate1D) c).getX());
 	}
 
-	@Override
-	public String getLabel() {
-		return label;
-	}
-
-	public void setX(int x) {
-		this.x = x;
-	}
-
-	public int getX() {
-		return this.x;
-	}
+	/**
+	 * Getter for x
+	 */
+	public double getX() { return this.x;}
+	public void setX(double x) { this.x = x; }
 }

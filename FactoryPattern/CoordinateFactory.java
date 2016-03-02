@@ -1,32 +1,54 @@
+/**
+ * CoordinateFactory: use getCoordinate method to get Coordinate type object randomly initialized
+ * +toString()
+ * +getCoordiante()
+ *
+ * Reference: http://www.tutorialspoint.com/design_pattern/factory_pattern.htm
+ */
+import java.util.*;
+
 public class CoordinateFactory {
 
-	// use getCoordinate method to get Coordinate type object randomly initialized
-	public Coordinate getCoordinate(String coorDimension) {
-		if (coorDimension == null) { // null check
-			return null;
-		}
-
-		if (coorDimension.equalsIgnoreCase("1") || coorDimension.equalsIgnoreCase("1D")) {
-			return new Coordinate1D();
-
-		} else if (coorDimension.equalsIgnoreCase("2") || coorDimension.equalsIgnoreCase("2D")) {
-			return new Coordinate2D();
-
-		} else if (coorDimension.equalsIgnoreCase("3") || coorDimension.equalsIgnoreCase("3D")) {
-			return new Coordinate3D();
-		}
-		return null;
-	}
- 
-	public Coordinate getCoordinate(int x) {
+    /**
+     * Overload method to create coordinates
+     */
+	public Coordinate getCoordinate(double x) {
 		return new Coordinate1D(x);
 	}
-	
-	public Coordinate getCoordinate(int x, int y) {
-		return new Coordinate2D(x, y);
+	public Coordinate getCoordinate(double x, double y) { return new Coordinate2D(x, y); }
+	public Coordinate getCoordinate(double x, double y, double z) { return new Coordinate3D(x, y, z); }
+
+
+	/*
+	 * Returns a N dimentional coordinate with random coordiante within [-100, 100]
+	 */
+	public Coordinate getCoordinate(String coordianteType) {
+		if (coordianteType == null|| coordianteType.equals("")) return null;
+
+		Coordinate c = null;
+
+		// Specify the range to be within [-100, 100] for simplicity
+		double min = -100.0;
+		double max = 100.0;
+
+		switch (coordianteType) {
+		case "1D":
+			c = new Coordinate1D();
+			System.out.println("1D coordinate created");
+			break;
+		case "2D":
+			c = new Coordinate2D();			
+			System.out.println("2D coordinate created");
+			break;
+		case "3D":
+			c = new Coordinate3D();
+			System.out.println("3D coordinate created");
+			break;
+		default:
+			break;
+		}
+
+		return c;
 	}
-	
-	public Coordinate getCoordinate(int x, int y, int z) {
-		return new Coordinate3D(x, y, z);
-	}
+
 }

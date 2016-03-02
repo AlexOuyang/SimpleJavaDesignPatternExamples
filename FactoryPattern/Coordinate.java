@@ -1,3 +1,4 @@
+
 /**
  * Coordinate <Interface>: This is the Coordinate interface
  * +toString()
@@ -20,7 +21,7 @@ public interface Coordinate {
      * @param coordinate
      * @return the information
      */
-    public double distance(Coordinate coor);
+    public double distance(Coordinate c);
 
     /**
      * Labels the provided point with the provided string

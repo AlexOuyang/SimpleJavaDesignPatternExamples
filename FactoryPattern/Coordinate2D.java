@@ -1,87 +1,55 @@
+/**
+ * Coordinate2D <implements Coordinate>: 2 dimentional coordinate
+ * +toString()
+ * +distance()
+ * +label()
+ * +getLabel()
+ */
+
 import java.util.*;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class Coordinate2D implements Coordinate{
 
-	private int x; //this is the x coordinate of the 2D point
-	private int y; //this is the y coordinate of the 2D point
-	private String label; //label of 1D point
-	
+public class Coordinate2D extends CoordinateNdimensional {
+
+	private double x;
+
+	private double y;
+
 	/**
-	 * This is the default constructor. It will randomly select a value
-	 * for x
+	 * Overload the constructor for specifying the coordinate location
+	 * @param x is the x coordinate
+	 * @param y is the y coordinate
 	 */
-	public Coordinate2D(){
-		this.x = randomCoordinate();
-		this.y = randomCoordinate();
-		this.label = "";		
-	}
-	
-	/**
-	 * This constructor will set x and y to the passed in values
-	 * @param x - this is the value the coordinate's x will be set to
-	 * @param y - this is the value the coordinate's y will be set to
-	 */
-	public Coordinate2D(int x, int y){
+	public Coordinate2D(double x, double y) {
 		this.x = x;
 		this.y = y;
-		this.label = "";
-	}
-	
-	@Override
-	public String toString(){
-		
-		String retString = label + ": (" + getX() + ", " + getY() + ")";
-		return retString;		
-	}
-	
-	@Override
-	public double distance(Coordinate coor) {
-		
-		int newX = this.x - ((Coordinate2D)coor).getX();
-		int newY = this.y - ((Coordinate2D)coor).getY();
-		double bothX = (double)newX * (double)newX;
-		double bothY = (double)newY * (double)newY;
-	    double distance = Math.sqrt(bothX + bothY);
-		return distance;
 	}
 
-	@Override
-	public void label(String label) {
-		this.label = label;
+
+	/**
+	 * Overload constructor that specifies a random value,
+	 * range is between -100.0 to 100.0
+	 */
+	public Coordinate2D() {
+		double min = -100.0;
+		double max = 100.0;
+		x = getRandom(min, max);
+		y = getRandom(min, max);
 	}
 
-	@Override
-	public String getLabel() {
-		return label;
-	}
-	
-	public int randomCoordinate(){
-		Random random1 = new Random();
-		int sign1 = random1.nextInt(2); //returns either 0 or 1
-		if(sign1 == 0){ //positive case for x
-			Random random2 = new Random();
-			int newCoor = random2.nextInt();
-			return newCoor;
-		} else{ //negative case for x
-			Random random2 = new Random();
-			int newCoor = random2.nextInt();
-			return newCoor * -1;
-		}
+	public String toString() { return ("(" + x + ", " + y + ")"); }
+
+	public double distance(Coordinate c) {
+		return Math.sqrt(Math.pow(this.x - ((Coordinate2D)c).getX(), 2) + Math.pow(this.y - ((Coordinate2D)c).getY(), 2));
 	}
 
-	public void setX(int x) {
-		this.x = x;
-	}
-	
-	public int getX() {
-		return this.x;
-	}
+	/**
+	 * Getter for x, y
+	 */
+	public void setX(double x) { this.x = x; }
+	public double getX() { return this.x; }
+	public void setY(double y) { this.y = y; }
+	public double getY() { return this.y; }
 
-	public void setY(int y) {
-		this.y = y;
-	}
-	
-	public int getY() {
-		return this.y;
-	}
 }

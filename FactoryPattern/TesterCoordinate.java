@@ -1,19 +1,26 @@
-public class CoordinateFactoryTester {
+/**
+ * This is the tester for coordinate factory pattern
+ */
+
+import java.util.*;
+
+
+public class TesterCoordinate {
+
 	public static void main(String[] args) {
 
-		// test no param Coordinate1D
-		testNoParam("1");
-		// test no param Coordinate2D
-		testNoParam("2d");
-		// test no param Coordinate3D
-		testNoParam("3D");
+		CoordinateFactory factory = new CoordinateFactory();
 
-		CoordinateFactory coordinateFactory = new CoordinateFactory();
+		if (factory.getCoordinate("1D") == null) System.out.println("Wrong Result!!!");
+		if (factory.getCoordinate("2D") == null) System.out.println("Wrong Result!!!");
+		if (factory.getCoordinate("3D") == null) System.out.println("Wrong Result!!!");
+		if (factory.getCoordinate("invalid") != null) System.out.println("Wrong Result!!!");
+
 		// to test Coordinate1D with params
-		Coordinate first = coordinateFactory.getCoordinate(-2);
-		Coordinate second = coordinateFactory.getCoordinate(5);
-		first.label("first 1D point");
-		second.label("second 1D point");
+		Coordinate first = factory.getCoordinate(-2);
+		Coordinate second = factory.getCoordinate(5);
+		first.setLabel("first 1D point");
+		second.setLabel("second 1D point");
 		if (first.getLabel().equals("first 1D point")) {
 			System.out.println("Coordinate1D label methods passed! :D");
 		} else {
@@ -31,10 +38,10 @@ public class CoordinateFactoryTester {
 		}
 
 		// to test Coordinate2D with params
-		first = coordinateFactory.getCoordinate(-2, 0);
-		second = coordinateFactory.getCoordinate(5, 0);
-		first.label("first 2D point");
-		second.label("second 2D point");
+		first = factory.getCoordinate(-2, 0);
+		second = factory.getCoordinate(5, 0);
+		first.setLabel("first 2D point");
+		second.setLabel("second 2D point");
 		if (first.getLabel().equals("first 2D point")) {
 			System.out.println("Coordinate2D label methods passed! :D");
 		} else {
@@ -52,10 +59,10 @@ public class CoordinateFactoryTester {
 		}
 
 		// to test Coordinate3D with params
-		first = coordinateFactory.getCoordinate(-3, -8, 8);
-		second = coordinateFactory.getCoordinate(1, -8, 11);
-		first.label("first 3D point");
-		second.label("second 3D point");
+		first = factory.getCoordinate(-3, -8, 8);
+		second = factory.getCoordinate(1, -8, 11);
+		first.setLabel("first 3D point");
+		second.setLabel("second 3D point");
 		if (first.getLabel().equals("first 3D point")) {
 			System.out.println("Coordinate3D label methods passed! :D");
 		} else {
@@ -119,20 +126,4 @@ public class CoordinateFactoryTester {
 		// System.out.println(threeDim.distance(secondThreeDim));
 	}
 
-	public static void testNoParam(String type) {
-		CoordinateFactory coordinateFactory = new CoordinateFactory();
-		Coordinate first = coordinateFactory.getCoordinate(type);
-		Coordinate second = coordinateFactory.getCoordinate(type);
-		first.label("first point");
-		second.label("second point");
-		if (first.getLabel().equals("first point")) {
-			System.out.println("Coordinate label methods passed! :D");
-		} else {
-			System.out.println("Coordinate label methods failed :(");
-			return;
-		}
-		System.out.println(first.toString());
-		System.out.println(second.toString());
-		System.out.println("Distance: " + first.distance(second) + "\n");
-	}
 }
