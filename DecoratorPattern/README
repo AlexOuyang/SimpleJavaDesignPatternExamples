@@ -3,6 +3,9 @@ to compile:  javac *.java
 to run:      java TesterWordList
 
 
+Reference Article: http://www.codeproject.com/Tips/468951/Decorator-Design-Pattern-in-Java
+
+
  * Description:
  *=======================================================================+
  * WordListInterface <interface>: This is a word list container interface

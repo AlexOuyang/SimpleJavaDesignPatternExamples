@@ -9,121 +9,102 @@ public class TesterCoordinate {
 
 	public static void main(String[] args) {
 
+		for (int i = 0; i < 5; i++) System.out.println("\n");
+
 		CoordinateFactory factory = new CoordinateFactory();
 
 		if (factory.getCoordinate("1D") == null) System.out.println("Wrong Result!!!");
+		else System.out.println("getCoordinate() passed check");
 		if (factory.getCoordinate("2D") == null) System.out.println("Wrong Result!!!");
+		else System.out.println("getCoordinate() passed check");
 		if (factory.getCoordinate("3D") == null) System.out.println("Wrong Result!!!");
+		else System.out.println("getCoordinate() passed check");
 		if (factory.getCoordinate("invalid") != null) System.out.println("Wrong Result!!!");
+		else System.out.println("getCoordinate() passed check");
 
-		// to test Coordinate1D with params
-		Coordinate first = factory.getCoordinate(-2);
-		Coordinate second = factory.getCoordinate(5);
-		first.setLabel("first 1D point");
-		second.setLabel("second 1D point");
-		if (first.getLabel().equals("first 1D point")) {
-			System.out.println("Coordinate1D label methods passed! :D");
-		} else {
-			System.out.println("Coordinate1D label methods failed :(");
-			return;
-		}
-		System.out.println(first.toString());
-		System.out.println(second.toString());
-		System.out.println("Distnace: " + first.distance(second));
-		if (first.distance(second) == 7) {
-			System.out.println("Coordinate1D distance methods passed! :D\n");
-		} else {
-			System.out.println("Coordinate1D distance methods failed :(");
-			return;
-		}
+		System.out.println("\n");
 
-		// to test Coordinate2D with params
-		first = factory.getCoordinate(-2, 0);
-		second = factory.getCoordinate(5, 0);
-		first.setLabel("first 2D point");
-		second.setLabel("second 2D point");
-		if (first.getLabel().equals("first 2D point")) {
-			System.out.println("Coordinate2D label methods passed! :D");
-		} else {
-			System.out.println("Coordinate2D label methods failed :(");
-			return;
-		}
-		System.out.println(first.toString());
-		System.out.println(second.toString());
-		System.out.println("Distnace: " + first.distance(second));
-		if (first.distance(second) == 7) {
-			System.out.println("Coordinate2D distance methods passed! :D\n");
-		} else {
-			System.out.println("Coordinate2D distance methods failed :(");
-			return;
-		}
+		// Test1
+		Coordinate c1 = factory.getCoordinate(3);
+		Coordinate c2 = factory.getCoordinate(4);
+		c1.setLabel("c1");
+		c2.setLabel("c2");
+		String c1L = c1.getLabel() + c1.toString();
+		String c2L = c2.getLabel() + c2.toString();
+		System.out.println("Distnace between " + c1L + " and " + c2L + " is " + c1.distance(c2));
+		if (c1.distance(c2) == 1) System.out.println("Correct distance calculated\n");
+		else System.out.println("Wrong Result!!!");
 
-		// to test Coordinate3D with params
-		first = factory.getCoordinate(-3, -8, 8);
-		second = factory.getCoordinate(1, -8, 11);
-		first.setLabel("first 3D point");
-		second.setLabel("second 3D point");
-		if (first.getLabel().equals("first 3D point")) {
-			System.out.println("Coordinate3D label methods passed! :D");
-		} else {
-			System.out.println("Coordinate3D label methods failed :(");
-			return;
-		}
-		System.out.println(first.toString());
-		System.out.println(second.toString());
-		System.out.println("Distnace: " + first.distance(second));
-		if (first.distance(second) == 5) {
-			System.out.println("Coordinate3D distance methods passed! :D\n");
-		} else {
-			System.out.println("Coordinate3D distance methods failed :(");
-			return;
-		}
+		System.out.println("\n");
 
-		// CoordinateFactory coordinateFactory = new CoordinateFactory();
-		// // get an object of Coordinate1D and test its methods.
-		// Coordinate oneDim = coordinateFactory.getCoordinate("1");
-		// Coordinate secondOneDim = coordinateFactory.getCoordinate("1d");
-		// oneDim.label("first 1D point");
-		// secondOneDim.label("second 1D point");
-		// if (oneDim.getLabel().equals("first 1D point")) {
-		// System.out.println("Coordinate 1D label methods passed! :D");
-		// } else {
-		// System.out.println("Coordinate 1D label methods failed :(");
-		// return;
-		// }
-		// System.out.println(oneDim.toString());
-		// System.out.println(secondOneDim.toString());
-		// System.out.println(oneDim.distance(secondOneDim));
-		//
-		// // get an object of Coordinate2D and test its methods.
-		// Coordinate twoDim = coordinateFactory.getCoordinate("2");
-		// Coordinate secondTwoDim = coordinateFactory.getCoordinate("2D");
-		// twoDim.label("first 2D point");
-		// secondTwoDim.label("second 2D point");
-		// if (twoDim.getLabel().equals("first 2D point")) {
-		// System.out.println("Coordinate 2D label methods passed! :D");
-		// } else {
-		// System.out.println("Coordinate 2D label methods failed :(");
-		// return;
-		// }
-		// System.out.println(twoDim.toString());
-		// System.out.println(secondTwoDim.toString());
-		// System.out.println(twoDim.distance(secondTwoDim));
-		//
-		// // get an object of Coordinate3D and test its methods.
-		// Coordinate threeDim = coordinateFactory.getCoordinate("2");
-		// Coordinate secondThreeDim = coordinateFactory.getCoordinate("2D");
-		// threeDim.label("first 3D point");
-		// secondThreeDim.label("second 3D point");
-		// if (twoDim.getLabel().equals("first 3D point")) {
-		// System.out.println("Coordinate 3D label methods passed! :D");
-		// } else {
-		// System.out.println("Coordinate 3D label methods failed :(");
-		// return;
-		// }
-		// System.out.println(threeDim.toString());
-		// System.out.println(secondThreeDim.toString());
-		// System.out.println(threeDim.distance(secondThreeDim));
+		// Test2
+		c1 = factory.getCoordinate(3, 0);
+		c2 = factory.getCoordinate(0, 4);
+		c1.setLabel("c1");
+		c2.setLabel("c2");
+		c1L = c1.getLabel() + c1.toString();
+		c2L = c2.getLabel() + c2.toString();
+		System.out.println("Distnace between " + c1L + " and " + c2L + " is " + c1.distance(c2));
+		if (c1.distance(c2) == 5) System.out.println("Correct distance calculated\n");
+		else System.out.println("Wrong Result!!!");
+
+		System.out.println("\n");
+
+
+		double result = 0.0;
+
+		// Test2
+		c1 = factory.getCoordinate(30, 20.5, 22);
+		c2 = factory.getCoordinate(-30, 40.11, -22);
+		c1.setLabel("c1");
+		c2.setLabel("c2");
+		c1L = c1.getLabel() + c1.toString();
+		c2L = c2.getLabel() + c2.toString();
+		System.out.println("Distnace between " + c1L + " and " + c2L + " is " + c1.distance(c2));
+		result = calculateDistanceBetweenTwoPointsForVerification3D(c1, c2);
+		if (c1.distance(c2) == result) System.out.println("Correct distance calculated\n");
+		else System.out.println("Wrong Result!!!");
+
+
+		System.out.println("\n");
+
+		c1 = factory.getCoordinate("3D");
+		c2 = factory.getCoordinate("3D");
+		c1.setLabel("c1");
+		c2.setLabel("c2");
+		c1L = c1.getLabel() + c1.toString();
+		c2L = c2.getLabel() + c2.toString();
+		System.out.println("Distnace between " + c1L + " and " + c2L + " is " + c1.distance(c2));
+		result = calculateDistanceBetweenTwoPointsForVerification3D(c1, c2);
+		if (c1.distance(c2) == result) System.out.println("Correct distance calculated\n");
+		else System.out.println("Wrong Result!!!");
+
+
+		System.out.println("\n");
+
+
+		// Test2
+		System.out.println("Correct!!! An exception should be thrown here saying Param should be of type Coordinate3D");
+		c1 = factory.getCoordinate("3D");
+		c2 = factory.getCoordinate("2D");
+		c1.setLabel("c1");
+		c2.setLabel("c2");
+		c1L = c1.getLabel() + c1.toString();
+		c2L = c2.getLabel() + c2.toString();
+		System.out.println("Distnace between " + c1L + " and " + c2L + " is " + c1.distance(c2));
+		result = calculateDistanceBetweenTwoPointsForVerification3D(c1, c2);
+		if (c1.distance(c2) == result) System.out.println("Correct distance calculated\n");
+		else System.out.println("Wrong Result!!!");
+
+
+		for (int i = 0; i < 5; i++) System.out.println("\n");
+
 	}
+
+
+	public static double calculateDistanceBetweenTwoPointsForVerification3D(Coordinate c1, Coordinate c2) {
+		return Math.sqrt(Math.pow(((Coordinate3D)c1).getX() - ((Coordinate3D)c2).getX(), 2) + Math.pow(((Coordinate3D)c1).getY() - ((Coordinate3D)c2).getY(), 2) + Math.pow(((Coordinate3D)c1).getZ() - ((Coordinate3D)c2).getZ(), 2));
+	}
+
 
 }

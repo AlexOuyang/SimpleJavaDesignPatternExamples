@@ -1,0 +1,10 @@
+ * Name: Alex Chenxing Ouyang
+ * PID: A12067610
+ * OrderFascade is a wrapper class that uses Fascade pattern to incorporate the process
+ * of ordering behind a simpler interface via the OrderFascade.
+ *
+ * To Compile: 
+ * > javac *.java
+ *
+ * Run: 
+ * > java OrderFascade

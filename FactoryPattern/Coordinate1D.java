@@ -31,6 +31,7 @@ public class Coordinate1D extends CoordinateNdimensional {
 	public String toString() { return ("(" + x + ")"); }
 
 	public double distance(Coordinate c) {
+		if (!(c instanceof Coordinate1D)) System.err.println("Param should be of type Coordinate1D");
 		return Math.abs(this.x - ((Coordinate1D) c).getX());
 	}
 

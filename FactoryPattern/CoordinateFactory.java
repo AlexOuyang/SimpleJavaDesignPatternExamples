@@ -9,9 +9,9 @@ import java.util.*;
 
 public class CoordinateFactory {
 
-    /**
-     * Overload method to create coordinates
-     */
+	/**
+	 * Overload method to create coordinates
+	 */
 	public Coordinate getCoordinate(double x) {
 		return new Coordinate1D(x);
 	}
@@ -23,7 +23,7 @@ public class CoordinateFactory {
 	 * Returns a N dimentional coordinate with random coordiante within [-100, 100]
 	 */
 	public Coordinate getCoordinate(String coordianteType) {
-		if (coordianteType == null|| coordianteType.equals("")) return null;
+		if (coordianteType == null || coordianteType.equals("")) return null;
 
 		Coordinate c = null;
 
@@ -37,7 +37,7 @@ public class CoordinateFactory {
 			System.out.println("1D coordinate created");
 			break;
 		case "2D":
-			c = new Coordinate2D();			
+			c = new Coordinate2D();
 			System.out.println("2D coordinate created");
 			break;
 		case "3D":
@@ -45,6 +45,7 @@ public class CoordinateFactory {
 			System.out.println("3D coordinate created");
 			break;
 		default:
+			System.out.println("Invalid coordianteType detected");
 			break;
 		}
 

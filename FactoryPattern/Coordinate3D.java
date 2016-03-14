@@ -6,6 +6,7 @@
  * +getLabel()
  */
 
+
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -45,6 +46,7 @@ public class Coordinate3D extends CoordinateNdimensional {
 	public String toString() { return ("(" + x + ", " + y + ", " + z + ")"); }
 
 	public double distance(Coordinate c) {
+		if (!(c instanceof Coordinate3D)) System.err.println("Param should be of type Coordinate3D");
 		return Math.sqrt(Math.pow(this.x - ((Coordinate3D)c).getX(), 2) + Math.pow(this.y - ((Coordinate3D)c).getY(), 2) + Math.pow(this.z - ((Coordinate3D)c).getZ(), 2));
 	}
 

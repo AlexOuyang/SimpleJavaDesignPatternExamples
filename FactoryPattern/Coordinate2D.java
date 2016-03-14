@@ -6,6 +6,7 @@
  * +getLabel()
  */
 
+
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -41,6 +42,7 @@ public class Coordinate2D extends CoordinateNdimensional {
 	public String toString() { return ("(" + x + ", " + y + ")"); }
 
 	public double distance(Coordinate c) {
+		if (!(c instanceof Coordinate2D)) System.err.println("Param should be of type Coordinate2D");
 		return Math.sqrt(Math.pow(this.x - ((Coordinate2D)c).getX(), 2) + Math.pow(this.y - ((Coordinate2D)c).getY(), 2));
 	}
 
