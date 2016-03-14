@@ -11,3 +11,4 @@ Design pattern examples and descriptions from CSE 110, including:
 * Model-View-Controller
 * Observer
 * Strategy
+* Singleton
