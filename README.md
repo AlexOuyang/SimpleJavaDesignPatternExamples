@@ -2,11 +2,11 @@
 
 Design pattern examples and descriptions from CSE 110, including:
 * Adapter
-* Decorator
+* Decorator ✔
 * Delegation
 * Factory, Abstract
-* Factory, Method
-* Fascade
+* Factory, Method ✔
+* Fascade ✔
 * Mediation
 * Model-View-Controller
 * Observer
