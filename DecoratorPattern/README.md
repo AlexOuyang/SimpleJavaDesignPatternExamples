@@ -1,10 +1,8 @@
 # Decorator Pattern (Structural Design Pattern) 
 
-##Description:
-
 Decorator design pattern is used to modify the functionality of an object statically or at runtime. At the same time other instances of the same class will not be affected by this, so individual object gets the modified behavior. We use inheritance or composition to extend the behavior of an object but this is done at compile time and its applicable to all the instances of the class.
 
-##How to use it:
+###How to use it:
 
 The functionality modification is achieved by designing a new decorator class that wraps the original class. This wrapping could be achieved by the following sequence of steps:
 
@@ -17,7 +15,7 @@ The functionality modification is achieved by designing a new decorator class th
 This pattern is designed so that multiple decorators can be stacked on top of each other, each time adding a new functionality to the overridden method(s).
 
 
-##Why use it:
+###Why use it:
 
 The decorator pattern is an alternative to subclassing. Subclassing adds behavior at compile time, and the change affects all instances of the original class; decorating can provide new behavior at run-time for individual objects.
 
@@ -25,7 +23,7 @@ In some object-oriented programming languages, classes cannot be created at runt
 
 
 
-##Decorator Example:
+###Decorator Example:
 
     to compile:  javac *.java
     to run:      java TesterWordList
